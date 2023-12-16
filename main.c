@@ -1,62 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.c                                        :+:    :+:            */
+/*   main.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/12/08 12:39:00 by asemerar      #+#    #+#                 */
-/*   Updated: 2023/12/08 12:50:18 by asemerar      ########   odam.nl         */
+/*   Created: 2023/12/16 16:21:03 by asemerar      #+#    #+#                 */
+/*   Updated: 2023/12/16 17:33:39 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-sa(n1a, n2a, stack_a)
-{
-    
-}
+#include "push_swap.h"
 
-sb(n1b, n2b)
+int	main(int argc, char** argv)
 {
-    
-}
+	t_swap* tab;
+	char** arguments;
 
-ss(n1a, n2a, n1b, n2b, stack_a, stack_b)
-{
-    sa(n1a, n2a);
-    sb(n1b, n2b);     
-}
-
-pa(n1b)
-{
-    
-}
-
-pb(n1a)
-{
-    
-}
-
-ra(stack_a)
-{
-    
-}
-
-rb
-{
-    
-}
-
-rr
-{
-    
-}
-
-rrb
-{
-    
-}
-
-rrr
-{
-   
+	if (argc == 1)
+		return (0);
+	tab = malloc(sizeof(t_swap));
+	if (!tab)
+		return (-1);
+	if (argc == 2)
+		arguments = ft_split(argv[1], ' ');
+	else 
+		arguments = argv;
+	tab->stack_a = ft_inizialize_list(arguments, argc);
+	
 }
