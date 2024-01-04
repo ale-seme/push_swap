@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   ft_putstr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/12/08 12:39:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/04 18:15:48 by asemerar      ########   odam.nl         */
+/*   Created: 2023/10/16 11:30:49 by asemerar      #+#    #+#                 */
+/*   Updated: 2023/10/20 18:52:02 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-typedef struct s_push
+void	ft_putstr_fd(char *s, int fd)
 {
-    int next;
-    int max;
-    int mid;
-    int flag;
-}   t_push; 
+	size_t	len;
 
-typedef struct s_swap
-{
-    t_list  *stack_a;
-    t_list  *stack_b;
-    int     asize;
-    int     bsize;
-}           t_swap;
+	len = ft_strlen(s);
+	write (fd, s, len);
+}
 
-#endif
+// int main(void)
+// {
+// 	char s[] = "123tuttigliangeliincolonna";
+// 	ft_putstr_fd(s, 1);
+// 	return (0);
+// }

@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   ft_tolower.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/12/08 12:39:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/04 18:15:48 by asemerar      ########   odam.nl         */
+/*   Created: 2023/10/06 19:35:58 by asemerar      #+#    #+#                 */
+/*   Updated: 2023/10/20 18:59:49 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-typedef struct s_push
+int	ft_tolower(int c)
 {
-    int next;
-    int max;
-    int mid;
-    int flag;
-}   t_push; 
+	if (c >= 65 && c <= 90)
+	{
+		return (c + 32);
+	}
+	else
+		return (c);
+}
 
-typedef struct s_swap
-{
-    t_list  *stack_a;
-    t_list  *stack_b;
-    int     asize;
-    int     bsize;
-}           t_swap;
-
-#endif
+// int	main(void)
+// {
+// 	printf("%d\n", ft_tolower('a'));
+// 	printf("%d", tolower('a'));
+// 	return (0);	
+// }

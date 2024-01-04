@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   ft_bzero.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/12/08 12:39:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/04 18:15:48 by asemerar      ########   odam.nl         */
+/*   Created: 2023/10/04 16:05:33 by asemerar      #+#    #+#                 */
+/*   Updated: 2023/10/26 14:28:40 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-typedef struct s_push
+void	ft_bzero(void *s, size_t n)
 {
-    int next;
-    int max;
-    int mid;
-    int flag;
-}   t_push; 
+	ft_memset(s, '\0', n);
+}
 
-typedef struct s_swap
-{
-    t_list  *stack_a;
-    t_list  *stack_b;
-    int     asize;
-    int     bsize;
-}           t_swap;
-
-#endif
+// int	main(void)
+// {
+// 	char str[50] = "hello world, what a beautiful day to be alive";
+// 	ft_bzero(str, 4);
+//	char str1[50] = "hello world, what a beautiful day to be alive"
+// 	printf("%s\n", str);
+//  printf("%s", str1);
+// 	return (0);
+// }

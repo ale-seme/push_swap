@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   ft_isdigit.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/12/08 12:39:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/04 18:15:48 by asemerar      ########   odam.nl         */
+/*   Created: 2023/10/03 14:30:31 by asemerar      #+#    #+#                 */
+/*   Updated: 2023/10/20 18:49:53 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-typedef struct s_push
+int	ft_isdigit(int c)
 {
-    int next;
-    int max;
-    int mid;
-    int flag;
-}   t_push; 
+	if (c >= '0' && c <= '9')
+	{
+		return (1);
+	}
+	return (0);
+}
 
-typedef struct s_swap
-{
-    t_list  *stack_a;
-    t_list  *stack_b;
-    int     asize;
-    int     bsize;
-}           t_swap;
-
-#endif
+// int main(void)
+// {
+// //printf("%d", ft_isdigit('8'));
+// printf("%d", isdigit('4'));
+// return (0);
+// }

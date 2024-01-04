@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   ft_strchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/12/08 12:39:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/04 18:15:48 by asemerar      ########   odam.nl         */
+/*   Created: 2023/10/06 19:47:03 by asemerar      #+#    #+#                 */
+/*   Updated: 2023/10/26 13:20:56 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
+#include <string.h>
 
-typedef struct s_push
+char	*ft_strchr(const char *s, int c)
 {
-    int next;
-    int max;
-    int mid;
-    int flag;
-}   t_push; 
+	unsigned int	i;
 
-typedef struct s_swap
-{
-    t_list  *stack_a;
-    t_list  *stack_b;
-    int     asize;
-    int     bsize;
-}           t_swap;
+	i = 0;
+	while (s[i] != (char)c)
+	{
+		if (s[i] == '\0')
+		{
+			return (0);
+		}
+		i++;
+	}
+	return ((char *)(s + i));
+}
+// int	main(void)
+// {
+// 	char str[] = "Try to find out where is the s";
+// 	printf("%s\n", ft_strchr("teste", '\0'));
+// 	printf("%s", strchr("teste", '\0'));
 
-#endif
+// 	return (0);
+// }

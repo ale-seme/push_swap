@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   ft_memset.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/12/08 12:39:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/04 18:15:48 by asemerar      ########   odam.nl         */
+/*   Created: 2023/10/04 13:20:41 by asemerar      #+#    #+#                 */
+/*   Updated: 2023/10/20 18:51:22 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#include "libft.h"
 
-typedef struct s_push
+void	*ft_memset(void *s, int c, size_t n)
 {
-    int next;
-    int max;
-    int mid;
-    int flag;
-}   t_push; 
+	size_t	i;
 
-typedef struct s_swap
-{
-    t_list  *stack_a;
-    t_list  *stack_b;
-    int     asize;
-    int     bsize;
-}           t_swap;
-
-#endif
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)s)[i] = c;
+		i++;
+	}
+	return (s);
+}
+// int main(void)
+// {
+// 	char str[50] = "hello world";
+// 	printf("%s", (char *)memset(str, '.', 4));
+// 	printf("%s", (char *)ft_memset(str, '.', 4));
+// 	return (0);
+// }
