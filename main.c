@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/16 16:21:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/05 14:48:15 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/05 15:38:46 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,5 @@ int	main(int argc, char** argv)
 	tab->asize = ft_lstsize(tab->stack_a);
 	tab->bsize = ft_lstsize(tab->stack_b);
 	add_index(tab->stack_a);
-	check_sort(tab)
+	choose_and_sort(tab);
 }
