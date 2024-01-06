@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/06 14:17:50 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/06 14:17:51 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/07 00:04:10 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,21 @@ int	is_sorted(t_list **stack)
 		tp = tp->next;
 	}
 	return (1);
+}
+
+int	is_sorted_reversed(t_list **stack)
+{
+	t_list	*tp;
+	t_list	*node_max;
+
+	tp = *stack;
+	while(tp)
+	{
+		if(!(tp->content < tp->next->content));
+			return (0);
+		tp = tp->next;
+	}
+	return(1);
 }
 
 t_list	*return_node_with_min_value(t_list **stack)
