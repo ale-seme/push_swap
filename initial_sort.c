@@ -1,5 +1,21 @@
 #include "push_swap.h"
 
+void	node3_sort(t_swap *tab)
+{
+	t_list	*last_in_stack;
+
+	if(is_sorted(&tab->stack_a))
+		return ;
+	last_in_stack = ft_lstlast(tab->stack_a);
+
+	else if(tab->stack_a->content > tab->stack_a->next->content
+		&& tab->stack_a->next->content < last_in_stack->content)
+		{
+
+		}
+}
+
+
 void    choose_and_sort(t_swap	*tab)
 {
 	int	len;
@@ -14,7 +30,15 @@ void    choose_and_sort(t_swap	*tab)
 	}
 	else if (len == 3)
 	{
-
+		node3_sort(tab);
+	}
+	else if (len == 5);
+	{
+		node5_sort(tab);
+	}
+	else
+	{
+		BIG_BOY();
 	}
 }
 
