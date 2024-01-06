@@ -5,7 +5,7 @@ void    choose_and_sort(t_swap	*tab)
 	int	len;
 
 	len = ft_lstsize(tab->stack_a);
-	if (is_sorted)//you need to write this one.
+	if (is_sorted(&tab->stack_a))//for now i give the double pointer to be able to modify in the future 
 		return ;
 	if (len = 2)
 	{
@@ -17,3 +17,4 @@ void    choose_and_sort(t_swap	*tab)
 
 	}
 }
+
