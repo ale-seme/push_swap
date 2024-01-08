@@ -12,7 +12,7 @@ void	node3_sort(t_swap *tab)
 		sa(&tab->stack_a);
 		rra(&tab->stack_a);
 	}
-	else_if(tab->stack_a->content > tab->stack_a->next->content
+	else if(tab->stack_a->content > tab->stack_a->next->content
 		&& tab->stack_a->next->content < last_in_stack->content)
 	{
 		ra(&tab->stack_a);
@@ -23,7 +23,7 @@ void	node3_sort(t_swap *tab)
 		sa(&tab->stack_a);
 	}
 	else if(tab->stack_a->content < tab->stack_a->next->content
-		&& tab->stack->next->content > last_in_stack->conten)
+		&& tab->stack_a->next->content > last_in_stack->content)
 	{
 		rra(&tab->stack_a);
 	}
