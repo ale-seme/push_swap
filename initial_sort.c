@@ -14,19 +14,13 @@ void	node3_sort(t_swap *tab)
 	}
 	else if(tab->stack_a->content > tab->stack_a->next->content
 		&& tab->stack_a->next->content < last_in_stack->content)
-	{
 		ra(&tab->stack_a);
-	}
 	else if(tab->stack_a->content > tab->stack_a->next->content
 		&& tab->stack_a->next->content < last_in_stack->content)
-	{
 		sa(&tab->stack_a);
-	}
 	else if(tab->stack_a->content < tab->stack_a->next->content
 		&& tab->stack_a->next->content > last_in_stack->content)
-	{
 		rra(&tab->stack_a);
-	}
 	else if(tab->stack_a->content < tab->stack_a->next->content
 		&& tab->stack_a->next->content > last_in_stack->content)
 	{
@@ -80,13 +74,13 @@ void    choose_and_sort(t_swap	*tab)
 	{
 		node3_sort(tab);
 	}
-	else if (len == 5);
+	else if (len == 5)
 	{
 		node5_sort(tab);
 	}
 	else
 	{
-		BIG_BOY();
+		quick_sort(&tab->stack_a, &tab->stack_b, ft_lstsize(tab->stack_a));
 	}
 }
 
