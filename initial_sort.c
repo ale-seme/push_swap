@@ -33,7 +33,34 @@ void	node3_sort(t_swap *tab)
 		rra(&tab->stack_a);
 		sa(&tab->stack_a);
 	}
+}
 
+void	node5_sort(t_swap *tab)
+{
+	int len;
+
+	len = ft_lstsize(tab->stack_a);
+	while(len)
+	{
+		if (tab->stack_a->index == 1 || tab->stack_a->index == 0)
+		{
+			pb(&tab->stack_a, &tab->stack_b);
+		}
+		else 
+		{
+			rra(&tab->stack_a);
+		}
+		len--;
+	}
+	node3_sort(&tab->stack_a);
+	if (&tab->stack_b->content < tab->stack_b->next->content)
+		sb(&tab->stack_b);
+	pa(&tab->stack_a, &tab->stack_b);
+	pa(&tab->stack_a, &tab->stack_b);
+
+	//only for checking purposes
+	if (!is_sorted(&tab->stack_a))
+		write (2, "Error with the sorting\n", 24);
 }
 
 
