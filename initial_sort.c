@@ -80,7 +80,7 @@ void    choose_and_sort(t_swap	*tab)
 	}
 	else
 	{
-		quick_sort(&tab->stack_a, &tab->stack_b, ft_lstsize(tab->stack_a));
+		quick_sort(&tab->stack_a, &tab->stack_b, len);
 	}
 }
 
