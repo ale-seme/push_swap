@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/11 22:31:07 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/13 23:25:18 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/13 23:55:03 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,36 @@ void divide_in_two(t_list **stack_a, t_list **stack_b, t_push *push, int origin_
 	push->mid = (push->max - push->next) / 2 + push->next;
 	push->flag++;
 }
+void	find_next(t_list **stack_a, t_list **stack_b, t_push *push)
+{
+	if(ft_lstsize(*stack_b) && (*stack_b)->index == push->next)
+	{
+		pa(stack_a, stack_b);
+	}
+	else if((*stack_a)->index == push->next)
+	{
+		(*stack_a)->flag = -1;
+		ra(stack_a);
+		push->next++;
+	}
+	else if (ft_lstsize(*stack_b) > 1 && (*stack_b)->next->index == push->next)
+	{
+		sb(stack_b);
+	}
+	else if((ft_lstsize(*stack_a) > 1 && (*stack_a)->next->index == push->next)
+			&& ((*stack_b)->next->index == push->next + 1))
+	{
+			ss(stack_a, stack_b);
+	}
+	else if(ft_lstsize(*stack_a) > 1 && (*stack_a)->next->index == push->next)
+	{
+		sa(stack_a);
+	}
+	else if(ft_lstlast(*stack_a)->index == push->next)
+	
+}
+
+
 void	sorting_emptying_b(t_list **stack_a, t_list **stack_b, t_push *push)
 {
 	int	len_b;
