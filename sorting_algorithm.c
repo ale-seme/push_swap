@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/11 22:31:07 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/12 18:14:18 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/13 20:14:47 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,22 @@ void divide_in_two(t_list **stack_a, t_list **stack_b, t_push *push, int origin_
 	i = 0;
 	while(i < origin_len)
 	{
-		if (stack_a->index <= push->mid)
+		if ((*stack_a)->index <= push->mid)
 		{
-			pa(stack_a, stack_b);
+			pb(stack_a, stack_b);
 		}
 		else
-			
+		{
+			if (ft_lstsize(*stack_b) > 1 && (*stack_b)->index < (push->mid / 2))
+				rr(stack_a, stack_b);
+			else
+				ra(stack_a, stack_b);
+		}
+		i++;
 	}
+	push->max = push->mid;
+	push->mid = (push->max - push->next) / 2 + push->next;
+	push->flag++;
 }
 
 
