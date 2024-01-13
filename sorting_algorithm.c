@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/11 22:31:07 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/13 23:55:03 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/14 00:02:34 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,13 @@ void	find_next(t_list **stack_a, t_list **stack_b, t_push *push)
 		sa(stack_a);
 	}
 	else if(ft_lstlast(*stack_a)->index == push->next)
+	{
+		rra(stack_a);
+	}
+	else
+		return ;
+	find_next(stack_a, stack_b, push);
+	
 	
 }
 
