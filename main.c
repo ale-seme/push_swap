@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/16 16:21:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/15 16:57:06 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/15 16:59:52 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_list * ft_initialize_stack(char **argum, int argc)
 		nbr = ft_atoi(argum[i]);
 		if (nbr > INT_MAX || nbr < INT_MIN || ft_right(stack, nbr, argum[i] == 0))
 		{
-			write(2, "Error", 5);
+			write(2, "Error\n", 6);
 			return (NULL);
 		}
 		tmp = ft_lstnew(nbr);
