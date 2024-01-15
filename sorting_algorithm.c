@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/11 22:31:07 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/14 00:02:34 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/15 16:46:16 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ void	find_next(t_list **stack_a, t_list **stack_b, t_push *push)
 	else
 		return ;
 	find_next(stack_a, stack_b, push);
-	
-	
 }
 
 
@@ -102,7 +100,24 @@ void	sorting_emptying_b(t_list **stack_a, t_list **stack_b, t_push *push)
 	push->flag++;
 }
 
-
+void	sorting_emptying_b(t_list **stack_a, t_list **stack_b, t_push *push)
+{
+	int flag_now;
+	
+	flag_now = (*stack_a)->flag;
+	if((*stack_a)->flag != 0)
+	{
+		while((*stack_a)->flag == flag_now)
+		{
+			if((*stack_a)->index != push->next)
+				pb(stack_a, stack_b);
+			find_next(stack_a, stack_b, push);
+		}
+	}
+	if (ft_lstsize(*stack_b))
+		push->max = (return_node_with_max_value(stack_b))->index;
+	push->mid = (push->max - push->next) / 2 + push->next;
+}
 
 void sorting_algorithm(t_list **stack_a, t_list **stack_b, int origin_len)
 {
