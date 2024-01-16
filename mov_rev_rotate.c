@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/06 14:17:35 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/06 17:29:05 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/16 15:26:26 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	rra(t_list **stack_a)
 	write(1, "rra\n", 4);
 }
 
-void	rra(t_list **stack_b)
+void	rrb(t_list **stack_b)
 {
 	ft_reverse_rotate(stack_b);
 	write(1, "rrb\n", 4);
