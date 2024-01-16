@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/08 12:39:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/16 15:21:18 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/16 15:25:19 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ void	ra(t_list **stack_a);
 void	rb(t_list **stack_b);
 void	rra(t_list **stack_a);
 void	rra(t_list **stack_b);
+void	sa(t_list **stack_a);
+void	sb(t_list	**stack_b);
+void	ss(t_list **stack_a, t_list **stack_b);
+
+
 
 
 
