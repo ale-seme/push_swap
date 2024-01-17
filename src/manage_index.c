@@ -1,13 +1,13 @@
 #include "push_swap.h"
 
-static void	replace_index(t_list *stack, long int current_min, int i)
+static void	replace_index(t_list *stack, int current_min, int i)
 {
 	t_list	*tp;
 
 	tp = stack;
 	while(tp)
 	{
-		if(tp->content == current_min && tp->content == -1)
+		if(tp->content == current_min && tp->index == -1)
 			break ;
 		tp = tp->next;
 	}

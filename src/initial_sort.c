@@ -7,7 +7,7 @@ static void	node3_sort(t_swap *tab)
 	if(is_sorted(&tab->stack_a))
 		return ;
 	last_in_stack = ft_lstlast(tab->stack_a);
-	if (is_sorted_reversed(&tab->stack_a))
+	if (is_sorted_reversed(tab))
 	{
 		sa(&tab->stack_a);
 		rra(&tab->stack_a);
@@ -42,16 +42,15 @@ static void	node5_sort(t_swap *tab)
 		}
 		else 
 		{
-			rra(&tab->stack_a);
+			ra(&tab->stack_a);
 		}
 		len--;
 	}
 	node3_sort(tab);
-	if (&tab->stack_b->content < &tab->stack_b->next->content)
-		sb(&tab->stack_b);
 	pa(&tab->stack_a, &tab->stack_b);
 	pa(&tab->stack_a, &tab->stack_b);
-
+	if (tab->stack_a->content > tab->stack_a->next->content)
+		sa(&tab->stack_a);
 	//only for checking purposes
 	if (!is_sorted(&tab->stack_a))
 		write (2, "Error with the sorting\n", 24);

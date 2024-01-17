@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/06 14:17:50 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/17 14:10:14 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/17 16:44:06 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,14 @@ int	is_sorted_a(t_list **stack_a, int original_len)
 		return (0);
 	return (1);
 }
-
-int	is_sorted_reversed(t_list **stack)
+int	is_sorted_reversed(t_swap *tab)
 {
 	t_list	*tp;
 
-	tp = *stack;
-	while(tp)
+	tp = tab->stack_a;
+	while(tp->next)
 	{
-		if(!(tp->content < tp->next->content))
+		if(tp->content < tp->next->content)
 			return (0);
 		tp = tp->next;
 	}
