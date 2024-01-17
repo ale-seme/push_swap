@@ -66,8 +66,7 @@ void	choose_and_sort(t_swap	*tab)
 		return ;
 	if (len == 2)
 	{
-		printf("hello");
-		if (tab->stack_a->content > tab->stack_b->content)
+		if (tab->stack_a->content > tab->stack_a->next->content)
 			sa(&tab->stack_a);
 	}
 	else if (len == 3)
