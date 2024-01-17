@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/16 16:21:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/17 21:51:03 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/17 23:40:49 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	free_after_split(char **ss, char *str, int f)
 	{
 		return ;	
 	}
-	if((!ss[1] || !ss[2] || ss[0][0] == '\0') && f == 1)
+	if((!ss[1]|| ss[0][0] == '\0') && f == 1)
 	{
 		free(str);
 		free(ss);
@@ -69,7 +69,7 @@ static int	ft_ok(t_list	*stack, long	n, char *str, char **ss, int f)
 	while (tp)
 	{
 		if (tp->content == n)
-			return (free_all_nodes(stack), 0);
+			return (free_after_split(ss, str, f), free_all_nodes(stack), 0);
 		tp = tp->next;
 	}
 	return (1);
