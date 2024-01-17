@@ -66,6 +66,7 @@ void	choose_and_sort(t_swap	*tab)
 		return ;
 	if (len == 2)
 	{
+		printf("hello");
 		if (tab->stack_a->content > tab->stack_b->content)
 			sa(&tab->stack_a);
 	}
@@ -79,7 +80,7 @@ void	choose_and_sort(t_swap	*tab)
 	}
 	else
 	{
-		sorting_algorithm(&tab->stack_a, &tab->stack_b, len);
+		sorting_algorithm(&tab->stack_a, &tab->stack_b, ft_lstsize(tab->stack_a));
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/12 19:39:55 by asemerar      #+#    #+#                 */
-/*   Updated: 2023/10/26 17:45:27 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/17 21:44:47 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	n_substrings = ft_count_n_substrings(s, c);
+	if(n_substrings == 0)
+		return (NULL);
 	return (ft_split_shorter(s, c, n_substrings));
 }
 
@@ -119,7 +121,7 @@ char	**ft_split(char const *s, char c)
 
 // 	// const char s[] = "A1|B2|C3|D4|E5";
 // 	// char **str = ft_split(s, '\0');
-// 	char **str = ft_split("hello!",' ');
+// 	char **str = ft_split("",' ');
 // 	if (str == NULL) 
 // 	{
 // 		printf("Memory allocation failed.\n");

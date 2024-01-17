@@ -6,7 +6,7 @@
 #    By: asemerar <asemerar@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/08 12:38:55 by asemerar      #+#    #+#                  #
-#    Updated: 2024/01/17 14:09:36 by asemerar      ########   odam.nl          #
+#    Updated: 2024/01/17 21:27:12 by asemerar      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS = 	src/main.c src/manage_index.c src/initial_sort.c src/mov_pushes.c src/mo
 		 src/mov_rotate.c src/sorting_algorithm.c src/utilities_for_sorting.c libft/libft.a
 
 
-$(NAME) :
+$(NAME) : 
 	make bonus -C libft
 	cc $(CFLAGS) $(SRCS) -o $(NAME)
 
