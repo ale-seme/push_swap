@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/11 22:31:07 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/17 16:04:34 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/17 17:29:33 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,8 @@ void	find_next(t_list **stack_a, t_list **stack_b, t_push *push)
 	{
 		sb(stack_b);
 	}
-	else if ((ft_lstsize(*stack_b)) > 2
-		&& ft_lstlast(*stack_b)->index == push->next)
-		rrb(stack_a);
+	else if ((ft_lstsize(*stack_b)) > 2 && ft_lstlast(*stack_b)->index == push->next)
+		rrb(stack_b);
 	else if(ft_lstsize(*stack_a) > 1 && (*stack_a)->next->index == push->next)
 	{
 		sa(stack_a);

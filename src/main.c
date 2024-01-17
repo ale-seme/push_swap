@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/16 16:21:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/17 15:52:36 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/17 18:15:39 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	free_all_nodes(t_list *stack)
 	free(stack);
 }
 
-static int	ft_right(t_list	*stack, long	nbr, char *str)
+static int	ft_right(t_list	*stack, long	nbr, char *str, char **ss)
 {
 	t_list	*tp;
 	int		i;
@@ -37,7 +37,14 @@ static int	ft_right(t_list	*stack, long	nbr, char *str)
 	{
 		if (!((ft_issign(str[i]) && ft_isdigit(str[i + 1]) && (i == 0 || !ft_isdigit(str[i - 1])))
 			|| ft_isdigit(str[i])))
-			return (free_all_nodes(stack), 0);
+		{
+			if(!ss[1])
+			{
+				free(str);
+				free(ss);
+			}
+			return (free_all_nodes(stack), 0);	
+		}
 		i++;	
 	}
 	while (tp)
@@ -64,7 +71,7 @@ static t_list *ft_initialize(char **argum, int argc)
 	while(argum[i])
 	{
 		nbr = ft_atoi(argum[i]);
-		if (nbr > INT_MAX || nbr < INT_MIN || ft_right(stack, nbr, argum[i]) == 0)
+		if (nbr > INT_MAX || nbr < INT_MIN || ft_right(stack, nbr, argum[i], argum) == 0)
 		{
 			write(2, "Error\n", 6);
 			return (NULL);

@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/06 14:17:35 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/17 17:06:12 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/17 17:26:15 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_reverse_rotate(t_list **stack)
 	t_list	*tp;
 	t_list	*last_node;
 	
-	if(!(*stack) || !(*stack)->next)
+	if(!(*stack) || !((*stack)->next))
 		return ;
 	tp = *stack;
 	last_node = ft_lstlast(*stack);
