@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	node3_sort(t_swap *tab)
+static void	node3_sort(t_swap *tab)
 {
 	t_list	*last_in_stack;
 
@@ -29,7 +29,7 @@ void	node3_sort(t_swap *tab)
 	}
 }
 
-void	node5_sort(t_swap *tab)
+static void	node5_sort(t_swap *tab)
 {
 	int len;
 
@@ -58,7 +58,7 @@ void	node5_sort(t_swap *tab)
 }
 
 
-void    choose_and_sort(t_swap	*tab)
+void	choose_and_sort(t_swap	*tab)
 {
 	int	len;
 

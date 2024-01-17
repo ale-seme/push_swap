@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/08 12:39:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/16 15:26:18 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/17 11:33:17 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,13 @@ typedef struct s_swap
 }           t_swap;
 
 void	add_index(t_list *stack);
-
 t_list	*return_node_with_max_value(t_list **stack);
 t_list	*return_node_with_min_value(t_list **stack);
 void	divide_in_two(t_list **stack_a, t_list **stack_b, t_push *push, int origin_len);
+int	is_sorted(t_list **stack);
+int	is_sorted_a(t_list **stack_a, int original_len);
+int	is_sorted_reversed(t_list **stack);
+void	choose_and_sort(t_swap	*tab);
 
 void	pa(t_list **stack_a, t_list **stack_b);
 void	pb(t_list **stack_a, t_list **stack_b);
@@ -46,6 +49,8 @@ void	rrb(t_list **stack_b);
 void	sa(t_list **stack_a);
 void	sb(t_list	**stack_b);
 void	ss(t_list **stack_a, t_list **stack_b);
+void sorting_algorithm(t_list **stack_a, t_list **stack_b, int origin_len);
+
 
 
 

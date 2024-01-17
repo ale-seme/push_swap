@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/11 22:31:07 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/15 16:46:16 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/17 11:32:30 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void divide_in_two(t_list **stack_a, t_list **stack_b, t_push *push, int origin_
 			if (ft_lstsize(*stack_b) > 1 && (*stack_b)->index < (push->mid / 2))
 				rr(stack_a, stack_b);
 			else
-				ra(stack_a, stack_b);
+				ra(stack_a);
 		}
 		i++;
 	}
@@ -127,7 +127,7 @@ void sorting_algorithm(t_list **stack_a, t_list **stack_b, int origin_len)
 	push.max = return_node_with_max_value(stack_a)->index;
 	push.mid = push.max / 2 + push.next;
 	divide_in_two(stack_a, stack_b, &push, origin_len);
-	while(!is_sorted(stack_a, origin_len))
+	while(!is_sorted_a(stack_a, origin_len))
 	{
 		if(ft_lstsize(stack_b) == 0)
 		{

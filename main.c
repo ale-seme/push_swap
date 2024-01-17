@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/16 16:21:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/15 16:59:52 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/17 11:21:40 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	free_all_nodes(t_list *stack)
 	free(stack);
 }
 
-int	ft_right(t_list	*stack, long	nbr, char *str)
+static int	ft_right(t_list	*stack, long	nbr, char *str)
 {
 	t_list	*tp;
 	int		i;
@@ -49,7 +49,7 @@ int	ft_right(t_list	*stack, long	nbr, char *str)
 	return (1);
 }
 
-t_list * ft_initialize_stack(char **argum, int argc)
+static t_list *ft_initialize_stack(char **argum, int argc)
 {
 	t_list	*tmp;
 	t_list	*stack;
@@ -76,6 +76,18 @@ t_list * ft_initialize_stack(char **argum, int argc)
 		i++;	
 	}
 	return (stack);
+}
+
+static void free_all_nodes(t_list *stack)
+{
+    t_list *tmp;
+	while (stack && stack->next)
+    {
+        tmp = stack;
+		stack = stack->next;
+        free(tmp);
+    }
+	free(stack);
 }
 
 int	main(int argc, char** argv)

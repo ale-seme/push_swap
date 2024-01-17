@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	replace_index(t_list *stack, long int current_min, int i)
+static void	replace_index(t_list *stack, long int current_min, int i)
 {
 	t_list	*tp;
 
@@ -14,7 +14,7 @@ void	replace_index(t_list *stack, long int current_min, int i)
 	tp->index = i;
 }
 
-long int	min_nbr(t_list *stack)
+static long int	min_nbr(t_list *stack)
 {
 	t_list		*tp;
 	long int 	min;
