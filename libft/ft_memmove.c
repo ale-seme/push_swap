@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/05 16:24:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2023/11/04 19:45:12 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/17 13:52:55 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-int main(void) 
-{
-	char dest[] = "I Wanna uat";
-	char src[] = "I Wanna eat";
-	ft_memmove(dest, src, 13);
-	//memmove(dest, src, 13);
-	printf("%s", dest);
-}
+// int main(void) 
+// {
+// 	char dest[] = "I Wanna uat";
+// 	char src[] = "I Wanna eat";
+// 	ft_memmove(dest, src, 13);
+// 	//memmove(dest, src, 13);
+// 	printf("%s", dest);
+// }

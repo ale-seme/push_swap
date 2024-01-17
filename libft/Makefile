@@ -6,7 +6,7 @@
 #    By: asemerar <asemerar@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/04 16:04:37 by asemerar      #+#    #+#                  #
-#    Updated: 2024/01/04 18:13:44 by asemerar      ########   odam.nl          #
+#    Updated: 2024/01/17 13:52:01 by asemerar      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,7 @@ SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 
 SRCSB = ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
 		ft_lstsize_bonus.c ft_lstlast_bonus.c \
-		ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-		ft_lstclear_bonus.c ft_lstiter_bonus.c \
-		ft_lstmap_bonus.c
+		ft_lstadd_back_bonus.c
 
 OBJS = $(SRCS:.c=.o)
 OBJSB = $(SRCSB:.c=.o)

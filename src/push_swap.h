@@ -6,30 +6,31 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/08 12:39:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/17 11:33:17 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/17 13:42:27 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
-#include "../libft/libft.h"
+# include "../libft/libft.h"
+# include <limits.h>
 
-typedef struct s_push
+typedef struct	s_push
 {
-	int next;
-	int max;
-	int mid;
-	int flag;
-}   t_push; 
+	int	next;
+	int	max;
+	int	mid;
+	int	flag;
+}	t_push; 
 
-typedef struct s_swap
+typedef struct	s_swap
 {
-	t_list  *stack_a;
-	t_list  *stack_b;
-	int     asize;
-	int     bsize;
-}           t_swap;
+	t_list	*stack_a;
+	t_list	*stack_b;
+	int		asize;
+	int		bsize;
+}			t_swap;
 
 void	add_index(t_list *stack);
 t_list	*return_node_with_max_value(t_list **stack);
@@ -44,20 +45,12 @@ void	pa(t_list **stack_a, t_list **stack_b);
 void	pb(t_list **stack_a, t_list **stack_b);
 void	ra(t_list **stack_a);
 void	rb(t_list **stack_b);
+void	rr(t_list **stack_a, t_list **stack_b);
 void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
 void	sa(t_list **stack_a);
 void	sb(t_list	**stack_b);
 void	ss(t_list **stack_a, t_list **stack_b);
-void sorting_algorithm(t_list **stack_a, t_list **stack_b, int origin_len);
-
-
-
-
-
-
-
-
-
+void	sorting_algorithm(t_list **stack_a, t_list **stack_b, int origin_len);
 
 #endif

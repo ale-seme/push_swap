@@ -6,13 +6,13 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/16 16:21:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/17 11:21:40 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/17 13:34:43 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_all_nodes(t_list *stack)
+static void	free_all_nodes(t_list *stack)
 {
 	t_list	*tp;
 	
@@ -49,7 +49,7 @@ static int	ft_right(t_list	*stack, long	nbr, char *str)
 	return (1);
 }
 
-static t_list *ft_initialize_stack(char **argum, int argc)
+static t_list *ft_initialize(char **argum, int argc)
 {
 	t_list	*tmp;
 	t_list	*stack;
@@ -64,7 +64,7 @@ static t_list *ft_initialize_stack(char **argum, int argc)
 	while(argum[i])
 	{
 		nbr = ft_atoi(argum[i]);
-		if (nbr > INT_MAX || nbr < INT_MIN || ft_right(stack, nbr, argum[i] == 0))
+		if (nbr > INT_MAX || nbr < INT_MIN || ft_right(stack, nbr, argum[i]) == 0)
 		{
 			write(2, "Error\n", 6);
 			return (NULL);
@@ -77,19 +77,6 @@ static t_list *ft_initialize_stack(char **argum, int argc)
 	}
 	return (stack);
 }
-
-static void free_all_nodes(t_list *stack)
-{
-    t_list *tmp;
-	while (stack && stack->next)
-    {
-        tmp = stack;
-		stack = stack->next;
-        free(tmp);
-    }
-	free(stack);
-}
-
 int	main(int argc, char** argv)
 {
 	t_swap* tab;
@@ -104,9 +91,10 @@ int	main(int argc, char** argv)
 		arguments = ft_split(argv[1], ' ');
 	else 
 		arguments = argv;
-	tab->stack_a = ft_inizialize_stack(arguments, argc);
+	tab->stack_a = ft_initialize(arguments, argc);
 	if (tab->stack_a == NULL)
 		return (free(tab), -2);
+	tab->stack_b = NULL;
 	tab->asize = ft_lstsize(tab->stack_a);
 	tab->bsize = ft_lstsize(tab->stack_b);
 	add_index(tab->stack_a);

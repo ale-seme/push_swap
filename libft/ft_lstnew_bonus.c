@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/20 20:55:43 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/04 17:25:46 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/17 13:07:46 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 //     struct s_list   *next;
 // }                    t_list;
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*new;
 

@@ -46,8 +46,8 @@ static void	node5_sort(t_swap *tab)
 		}
 		len--;
 	}
-	node3_sort(&tab->stack_a);
-	if (&tab->stack_b->content < tab->stack_b->next->content)
+	node3_sort(tab);
+	if (&tab->stack_b->content < &tab->stack_b->next->content)
 		sb(&tab->stack_b);
 	pa(&tab->stack_a, &tab->stack_b);
 	pa(&tab->stack_a, &tab->stack_b);
@@ -65,10 +65,10 @@ void	choose_and_sort(t_swap	*tab)
 	len = ft_lstsize(tab->stack_a);
 	if (is_sorted(&tab->stack_a))//for now i give the double pointer to be able to modify in the future 
 		return ;
-	if (len = 2)
+	if (len == 2)
 	{
 		if (tab->stack_a->content > tab->stack_b->content)
-			sa(tab->stack_a);
+			sa(&tab->stack_a);
 	}
 	else if (len == 3)
 	{
@@ -80,7 +80,7 @@ void	choose_and_sort(t_swap	*tab)
 	}
 	else
 	{
-		quick_sort(&tab->stack_a, &tab->stack_b, len);
+		sorting_algorithm(&tab->stack_a, &tab->stack_b, len);
 	}
 }
 

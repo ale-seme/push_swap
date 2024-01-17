@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/11 22:31:07 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/17 11:32:30 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/17 13:43:00 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	find_next(t_list **stack_a, t_list **stack_b, t_push *push)
 }
 
 
-void	sorting_emptying_b(t_list **stack_a, t_list **stack_b, t_push *push)
+static void	sorting_emptying_b(t_list **stack_a, t_list **stack_b, t_push *push)
 {
 	int	len_b;
 	int	i;
@@ -100,7 +100,7 @@ void	sorting_emptying_b(t_list **stack_a, t_list **stack_b, t_push *push)
 	push->flag++;
 }
 
-void	sorting_emptying_b(t_list **stack_a, t_list **stack_b, t_push *push)
+static void	sorting_a(t_list **stack_a, t_list **stack_b, t_push *push)
 {
 	int flag_now;
 	
@@ -129,7 +129,7 @@ void sorting_algorithm(t_list **stack_a, t_list **stack_b, int origin_len)
 	divide_in_two(stack_a, stack_b, &push, origin_len);
 	while(!is_sorted_a(stack_a, origin_len))
 	{
-		if(ft_lstsize(stack_b) == 0)
+		if(ft_lstsize(*stack_b) == 0)
 		{
 			sorting_a(stack_a, stack_b, &push);
 		}

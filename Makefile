@@ -6,36 +6,34 @@
 #    By: asemerar <asemerar@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/12/08 12:38:55 by asemerar      #+#    #+#                  #
-#    Updated: 2024/01/15 17:11:19 by asemerar      ########   odam.nl          #
+#    Updated: 2024/01/17 14:09:36 by asemerar      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
+NAME = push_swap
+
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Werror -Wall -Wextra -fsanitize=address
 
-SRCS =	main.c manage_index.c initial_sort.c mov_pushes.c mov_rev_rotate.c mov_swap.c \
-		 move_rotate.c sorting_algorithm.c utilities_for_sorting.c \
-		 libft/libft.a
-		 
-OBJS = $(SRCS:.c=.o)
+RM = rm -rf
 
-NAME = push_swap
-# Targets
-all: $(NAME)
+SRCS = 	src/main.c src/manage_index.c src/initial_sort.c src/mov_pushes.c src/mov_rev_rotate.c src/mov_swap.c \
+		 src/mov_rotate.c src/sorting_algorithm.c src/utilities_for_sorting.c libft/libft.a
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME) :
+	make bonus -C libft
+	cc $(CFLAGS) $(SRCS) -o $(NAME)
 
-clean:
-	rm -f $(OBJS)
+all : $(NAME)
 
-fclean: clean
-	rm -f $(NAME)
+fclean : clean
+	$(RM) $(NAME)
+	make fclean -C libft
 
-re: fclean all
+clean :
+	$(RM) $(NAME)
+	make clean -C libft
 
-.PHONY: all bonus clean fclean re
+re : fclean all
