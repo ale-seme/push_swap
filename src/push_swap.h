@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/08 12:39:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/17 16:42:08 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/18 19:41:38 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 
 # include "../libft/libft.h"
 # include <limits.h>
+
+typedef struct s_validation_params
+{
+	t_list 	*stack;
+	long	n;
+	char	*str;
+	char	**ss;
+	int		f;
+}	t_validation_params;
 
 typedef struct	s_push
 {

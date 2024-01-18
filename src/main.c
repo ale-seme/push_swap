@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/16 16:21:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/18 18:48:15 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/18 19:42:10 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,69 +48,78 @@ void	free_after_split(char **ss, char *str, int f)
 	free(ss);
 }
 
-static int	ft_ok(t_list	*stack, long n, char *str, char **ss, int f)
+static int ft_ok(t_validation_params *params)
 {
-	t_list	*tp;
-	int		i;
+	t_list  *tp;
+	int     i;
 
-	tp = stack;
+	tp = params->stack;
 	i = 0;
-
-	while (str[i])
+	while (params->str[i])
 	{
-		if (!((ft_issign(str[i]) && ft_isdigit(str[i + 1])
-			 && (i == 0 || !ft_isdigit(str[i - 1])))
-			|| ft_isdigit(str[i])))
+		if (!((ft_issign(params->str[i]) && ft_isdigit(params->str[i + 1])
+				&& (i == 0 || !ft_isdigit(params->str[i - 1])))
+			  || ft_isdigit(params->str[i])))
 		{
-			free_after_split(ss, str, f);
-			return (free_all_nodes(stack), 0);	
+			free_after_split(params->ss, params->str, params->f);
+			return (free_all_nodes(params->stack), 0);
 		}
-		i++;	
+		i++;
 	}
 	while (tp)
 	{
-		if (tp->content == n)
-			return (free_after_split(ss, str, f), free_all_nodes(stack), 0);
+		if (tp->content == params->n)
+			return (free_after_split(params->ss, params->str, params->f), free_all_nodes(params->stack), 0);
 		tp = tp->next;
 	}
-	return (1);
+	return 1;
 }
+
+
 
 static t_list *ft_initialize(char **arg, int argc, int f)
 {
-	t_list	*tmp;
-	t_list	*st;
-	int		i;
-	long	n;
+	t_list *tmp;
+	t_list *st;
+	int i;
+	long n;
+
+	t_validation_params params;
 
 	if (argc == 2)
 		i = 0;
 	else
 		i = 1;
 	st = NULL;
-	while(arg[i])
+
+	while (arg[i])
 	{
 		n = ft_atoi(arg[i]);
-		if (n > INT_MAX || n < INT_MIN || ft_ok(st, n, arg[i], arg, f) == 0)
+		params = (t_validation_params){st, n, arg[i], arg, f};
+		if (n > INT_MAX || n < INT_MIN || ft_ok(&params) == 0)
 		{
 			write(2, "Error\n", 6);
 			return (NULL);
 		}
+
 		tmp = ft_lstnew(n);
 		ft_lstadd_back(&st, tmp);
 		tmp->index = -1;
 		tmp->flag = -33;
-		i++;	
+		i++;
 	}
+
 	return (st);
 }
 
+
 int	main(int argc, char** argv)
 {
-	int flag = 0;
+	int flag;
 	t_swap* tab;
 	char** arguments;
 
+	flag = 0;
 	if (argc == 1)
 		return (0);
 	tab = malloc(sizeof(t_swap));
