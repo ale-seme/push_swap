@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/12 19:39:55 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/17 21:44:47 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/18 18:39:19 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	n_substrings = ft_count_n_substrings(s, c);
-	if(n_substrings == 0)
+	if (n_substrings == 0)
 		return (NULL);
 	return (ft_split_shorter(s, c, n_substrings));
 }
