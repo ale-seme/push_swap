@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/16 16:21:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/17 23:40:49 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/18 18:48:15 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	free_all_nodes(t_list *stack)
 {
 	t_list	*tp;
-	
+
 	while (stack && stack->next)
 	{
 		tp = stack;
@@ -24,22 +24,23 @@ static void	free_all_nodes(t_list *stack)
 	}
 	free(stack);
 }
+
 void	free_after_split(char **ss, char *str, int f)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if(ss == NULL || !ss[0] || f == 0)
+	if (ss == NULL || !ss[0] || f == 0)
 	{
-		return ;	
+		return ;
 	}
-	if((!ss[1]|| ss[0][0] == '\0') && f == 1)
+	if ((!ss[1] || ss[0][0] == '\0') && f == 1)
 	{
 		free(str);
 		free(ss);
 		return ;
 	}
-	while(ss[i])
+	while (ss[i])
 	{
 		free(ss[i]);
 		i++;
@@ -47,7 +48,7 @@ void	free_after_split(char **ss, char *str, int f)
 	free(ss);
 }
 
-static int	ft_ok(t_list	*stack, long	n, char *str, char **ss, int f)
+static int	ft_ok(t_list	*stack, long n, char *str, char **ss, int f)
 {
 	t_list	*tp;
 	int		i;
@@ -103,6 +104,7 @@ static t_list *ft_initialize(char **arg, int argc, int f)
 	}
 	return (st);
 }
+
 int	main(int argc, char** argv)
 {
 	int flag = 0;
