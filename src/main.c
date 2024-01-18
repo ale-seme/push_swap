@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/16 16:21:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/18 20:54:05 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/18 23:46:16 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ static int ft_ok(t_validation_params *params)
 	{
 		if (!((ft_issign(params->str[i]) && ft_isdigit(params->str[i + 1])
 				&& (i == 0 || !ft_isdigit(params->str[i - 1])))
-			  || ft_isdigit(params->str[i])))
+			  || ft_isdigit(params->str[i])) 
+			  || (params->n > INT_MAX || params->n < INT_MIN))
 		{
 			free_after_split(params->ss, params->str, params->f);
 			return (free_all_nodes(params->stack), 0);
@@ -91,7 +92,7 @@ static t_list *ft_initialize(char **arg, int argc, int f)
 	{
 		n = ft_atoi(arg[i]);
 		params = (t_validation_params){st, n, arg[i], arg, f};
-		if (n > INT_MAX || n < INT_MIN || ft_ok(&params) == 0)
+		if (ft_ok(&params) == 0)
 		{
 			write(2, "Error\n", 6);
 			return (NULL);
@@ -132,10 +133,6 @@ int	main(int argc, char** argv)
 	tab->stack_a = ft_initialize(arguments, argc, flag);
 	if (tab->stack_a == NULL)
 		return (free(tab), -2); //be careful here try to find a way to free before
-	tab->stack_b = NULL;
-	tab->asize = ft_lstsize(tab->stack_a);
-	tab->bsize = ft_lstsize(tab->stack_b);
-	add_index(tab->stack_a);
-	choose_and_sort(tab);
+	ft_continue_main(tab);
 	free_after_split(arguments, arguments[0], flag);
 }

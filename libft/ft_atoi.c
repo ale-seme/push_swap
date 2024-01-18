@@ -6,17 +6,17 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/09 10:35:16 by asemerar      #+#    #+#                 */
-/*   Updated: 2023/10/26 18:41:41 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/18 23:33:05 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	negative;
-	int	nb;
+	int		i;
+	int		negative;
+	long	nb;
 
 	i = 0;
 	negative = 1;
