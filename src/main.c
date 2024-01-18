@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/16 16:21:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/18 19:42:10 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/18 20:54:05 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,15 +83,10 @@ static t_list *ft_initialize(char **arg, int argc, int f)
 	t_list *st;
 	int i;
 	long n;
-
 	t_validation_params params;
 
-	if (argc == 2)
-		i = 0;
-	else
-		i = 1;
+	i = ft_set_start(argc);
 	st = NULL;
-
 	while (arg[i])
 	{
 		n = ft_atoi(arg[i]);
@@ -101,16 +96,16 @@ static t_list *ft_initialize(char **arg, int argc, int f)
 			write(2, "Error\n", 6);
 			return (NULL);
 		}
-
 		tmp = ft_lstnew(n);
 		ft_lstadd_back(&st, tmp);
 		tmp->index = -1;
 		tmp->flag = -33;
 		i++;
 	}
-
 	return (st);
 }
+
+
 
 
 int	main(int argc, char** argv)

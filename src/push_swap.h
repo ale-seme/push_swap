@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/08 12:39:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/18 19:41:38 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/18 20:39:31 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct	s_swap
 	int		bsize;
 }			t_swap;
 
+int		ft_set_start(int argc);
 void	add_index(t_list *stack);
 t_list	*return_node_with_max_value(t_list **stack);
 t_list	*return_node_with_min_value(t_list **stack);
