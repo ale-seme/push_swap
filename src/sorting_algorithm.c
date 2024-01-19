@@ -6,18 +6,18 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/11 22:31:07 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/19 17:23:20 by ale           ########   odam.nl         */
+/*   Updated: 2024/01/19 18:14:04 by ale           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	divide_in_two(t_list **stack_a, t_list **stack_b, t_push *push, int origin_len)
+void	divide_in_2(t_list **stack_a, t_list **stack_b, t_push *push, int len)
 {
 	int	i;
 
 	i = 0;
-	while (i < origin_len)
+	while (i < len)
 	{
 		if ((*stack_a)->index <= push->mid)
 			pb(stack_a, stack_b);
@@ -118,7 +118,7 @@ void	sort_algorithm(t_list **stack_a, t_list **stack_b, int origin_len)
 	push.next = return_node_with_min_value(stack_a)->index;
 	push.max = return_node_with_max_value(stack_a)->index;
 	push.mid = push.max / 2 + push.next;
-	divide_in_two(stack_a, stack_b, &push, origin_len);
+	divide_in_2(stack_a, stack_b, &push, origin_len);
 	while (!is_sorted_a(stack_a, origin_len))
 	{
 		if (ft_lstsize(*stack_b) == 0)

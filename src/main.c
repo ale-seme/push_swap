@@ -6,13 +6,13 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/16 16:21:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/19 17:16:17 by ale           ########   odam.nl         */
+/*   Updated: 2024/01/19 18:08:58 by ale           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	free_all_nodes(t_list *stack)
+static void	free_nod(t_list *stack)
 {
 	t_list	*tp;
 
@@ -25,7 +25,7 @@ static void	free_all_nodes(t_list *stack)
 	free(stack);
 }
 
-void	free_after_split(char **ss, char *str, int f)
+void	fr_s(char **ss, char *str, int f)
 {
 	int	i;
 
@@ -48,29 +48,29 @@ void	free_after_split(char **ss, char *str, int f)
 	free(ss);
 }
 
-static int	ft_ok(t_validation_params *params)
+static int	ft_ok(t_validation_params *par)
 {
 	t_list	*tp;
 	int		i;
 
-	tp = params->stack;
+	tp = par->stack;
 	i = 0;
-	while (params->str[i])
+	while (par->str[i])
 	{
-		if (!((ft_issign(params->str[i]) && ft_isdigit(params->str[i + 1])
-					&& (i == 0 || !ft_isdigit(params->str[i - 1])))
-				|| ft_isdigit(params->str[i]))
-			|| (params->n > INT_MAX || params->n < INT_MIN))
+		if (!((ft_issign(par->str[i]) && ft_isdigit(par->str[i + 1])
+					&& (i == 0 || !ft_isdigit(par->str[i - 1])))
+				|| ft_isdigit(par->str[i]))
+			|| (par->n > INT_MAX || par->n < INT_MIN))
 		{
-			free_after_split(params->ss, params->str, params->f);
-			return (free_all_nodes(params->stack), 0);
+			fr_s(par->ss, par->str, par->f);
+			return (free_nod(par->stack), 0);
 		}
 		i++;
 	}
 	while (tp)
 	{
-		if (tp->content == params->n)
-			return (free_after_split(params->ss, params->str, params->f), free_all_nodes(params->stack), 0);
+		if (tp->content == par->n)
+			return (fr_s(par->ss, par->str, par->f), free_nod(par->stack), 0);
 		tp = tp->next;
 	}
 	return (1);
@@ -82,15 +82,15 @@ static t_list	*ft_initialize(char **arg, int argc, int f)
 	t_list				*st;
 	int					i;
 	long				n;
-	t_validation_params	params;
+	t_validation_params	par;
 
 	i = ft_set_start(argc);
 	st = NULL;
 	while (arg[i])
 	{
 		n = ft_atoi(arg[i]);
-		params = (t_validation_params){st, n, arg[i], arg, f};
-		if (ft_ok(&params) == 0)
+		par = (t_validation_params){st, n, arg[i], arg, f};
+		if (ft_ok(&par) == 0)
 		{
 			write(2, "Error\n", 6);
 			return (NULL);
@@ -108,7 +108,7 @@ int	main(int argc, char **argv)
 {
 	int		flag;
 	t_swap	*tab;
-	char	**arguments;
+	char	**arg;
 
 	flag = 0;
 	if (argc == 1)
@@ -118,16 +118,16 @@ int	main(int argc, char **argv)
 		return (-1);
 	if (argc == 2)
 	{
-		arguments = ft_split(argv[1], ' ');
-		if (arguments == NULL)
+		arg = ft_split(argv[1], ' ');
+		if (arg == NULL)
 			return (free(tab), 0);
 		flag = 1;
 	}
 	else
-		arguments = argv;
-	tab->stack_a = ft_initialize(arguments, argc, flag);
+		arg = argv;
+	tab->stack_a = ft_initialize(arg, argc, flag);
 	if (tab->stack_a == NULL)
 		return (free(tab), -2);
 	ft_continue_main(tab);
-	return (free_after_split(arguments, arguments[0], flag), free_all_nodes(tab->stack_a), free(tab), 0);
+	return (fr_s(arg, arg[0], flag), free_nod(tab->stack_a), free(tab), 0);
 }
