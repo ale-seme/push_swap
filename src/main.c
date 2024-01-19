@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/16 16:21:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/18 23:46:16 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/19 13:12:11 by ale           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,5 +134,5 @@ int	main(int argc, char** argv)
 	if (tab->stack_a == NULL)
 		return (free(tab), -2); //be careful here try to find a way to free before
 	ft_continue_main(tab);
-	free_after_split(arguments, arguments[0], flag);
+	return(free_after_split(arguments, arguments[0], flag),free_all_nodes(tab->stack_a), free(tab), 0);
 }
