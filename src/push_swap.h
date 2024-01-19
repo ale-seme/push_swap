@@ -6,34 +6,34 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/08 12:39:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/18 23:11:23 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/19 17:24:31 by ale           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_H
-# define PUSHSWAP_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include "../libft/libft.h"
 # include <limits.h>
 
 typedef struct s_validation_params
 {
-	t_list 	*stack;
+	t_list	*stack;
 	long	n;
 	char	*str;
 	char	**ss;
 	int		f;
 }	t_validation_params;
 
-typedef struct	s_push
+typedef struct s_push
 {
 	int	next;
 	int	max;
 	int	mid;
 	int	flag;
-}	t_push; 
+}	t_push;
 
-typedef struct	s_swap
+typedef struct s_swap
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
@@ -47,9 +47,10 @@ void	add_index(t_list *stack);
 t_list	*return_node_with_max_value(t_list **stack);
 t_list	*return_node_with_min_value(t_list **stack);
 void	divide_in_two(t_list **stack_a, t_list **stack_b, t_push *push, int origin_len);
-int	is_sorted(t_list **stack);
-int	is_sorted_a(t_list **stack_a, int original_len);
-int	is_sorted_reversed(t_swap *tab);
+int		is_sorted(t_list **stack);
+int		is_sorted_a(t_list **stack_a, int original_len);
+int		is_sorted_reversed(t_swap *tab);
+void	sort_algorithm(t_list **stack_a, t_list **stack_b, int origin_len);
 void	choose_and_sort(t_swap	*tab);
 
 void	pa(t_list **stack_a, t_list **stack_b);
@@ -62,6 +63,5 @@ void	rrb(t_list **stack_b);
 void	sa(t_list **stack_a);
 void	sb(t_list	**stack_b);
 void	ss(t_list **stack_a, t_list **stack_b);
-void	sorting_algorithm(t_list **stack_a, t_list **stack_b, int origin_len);
 
 #endif

@@ -6,11 +6,9 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/06 23:11:36 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/06 23:11:37 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/19 15:22:07 by ale           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "push_swap.h"
 
@@ -21,7 +19,6 @@ void	pa(t_list **stack_a, t_list **stack_b)
 
 	if (!*stack_b)
 		return ;
-
 	tp_a = *stack_a;
 	tp_b = *stack_b;
 	*stack_b = tp_b->next;
@@ -35,7 +32,7 @@ void	pb(t_list **stack_a, t_list **stack_b)
 	t_list	*tp_a;
 	t_list	*tp_b;
 
-	if(!*stack_a)
+	if (!*stack_a)
 		return ;
 	tp_a = *stack_a;
 	tp_b = *stack_b;

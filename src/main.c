@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/16 16:21:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/19 13:12:11 by ale           ########   odam.nl         */
+/*   Updated: 2024/01/19 17:16:17 by ale           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,19 @@ void	free_after_split(char **ss, char *str, int f)
 	free(ss);
 }
 
-static int ft_ok(t_validation_params *params)
+static int	ft_ok(t_validation_params *params)
 {
-	t_list  *tp;
-	int     i;
+	t_list	*tp;
+	int		i;
 
 	tp = params->stack;
 	i = 0;
 	while (params->str[i])
 	{
 		if (!((ft_issign(params->str[i]) && ft_isdigit(params->str[i + 1])
-				&& (i == 0 || !ft_isdigit(params->str[i - 1])))
-			  || ft_isdigit(params->str[i])) 
-			  || (params->n > INT_MAX || params->n < INT_MIN))
+					&& (i == 0 || !ft_isdigit(params->str[i - 1])))
+				|| ft_isdigit(params->str[i]))
+			|| (params->n > INT_MAX || params->n < INT_MIN))
 		{
 			free_after_split(params->ss, params->str, params->f);
 			return (free_all_nodes(params->stack), 0);
@@ -73,18 +73,16 @@ static int ft_ok(t_validation_params *params)
 			return (free_after_split(params->ss, params->str, params->f), free_all_nodes(params->stack), 0);
 		tp = tp->next;
 	}
-	return 1;
+	return (1);
 }
 
-
-
-static t_list *ft_initialize(char **arg, int argc, int f)
+static t_list	*ft_initialize(char **arg, int argc, int f)
 {
-	t_list *tmp;
-	t_list *st;
-	int i;
-	long n;
-	t_validation_params params;
+	t_list				*tmp;
+	t_list				*st;
+	int					i;
+	long				n;
+	t_validation_params	params;
 
 	i = ft_set_start(argc);
 	st = NULL;
@@ -106,14 +104,11 @@ static t_list *ft_initialize(char **arg, int argc, int f)
 	return (st);
 }
 
-
-
-
-int	main(int argc, char** argv)
+int	main(int argc, char **argv)
 {
-	int flag;
-	t_swap* tab;
-	char** arguments;
+	int		flag;
+	t_swap	*tab;
+	char	**arguments;
 
 	flag = 0;
 	if (argc == 1)
@@ -124,15 +119,15 @@ int	main(int argc, char** argv)
 	if (argc == 2)
 	{
 		arguments = ft_split(argv[1], ' ');
-		if(arguments == NULL)
+		if (arguments == NULL)
 			return (free(tab), 0);
 		flag = 1;
 	}
-	else 
+	else
 		arguments = argv;
 	tab->stack_a = ft_initialize(arguments, argc, flag);
 	if (tab->stack_a == NULL)
-		return (free(tab), -2); //be careful here try to find a way to free before
+		return (free(tab), -2);
 	ft_continue_main(tab);
-	return(free_after_split(arguments, arguments[0], flag),free_all_nodes(tab->stack_a), free(tab), 0);
+	return (free_after_split(arguments, arguments[0], flag), free_all_nodes(tab->stack_a), free(tab), 0);
 }

@@ -6,18 +6,18 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/11 22:31:07 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/17 17:29:33 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/19 17:23:20 by ale           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void divide_in_two(t_list **stack_a, t_list **stack_b, t_push *push, int origin_len)
+void	divide_in_two(t_list **stack_a, t_list **stack_b, t_push *push, int origin_len)
 {
-    int	i;
-	
+	int	i;
+
 	i = 0;
-	while(i < origin_len)
+	while (i < origin_len)
 	{
 		if ((*stack_a)->index <= push->mid)
 			pb(stack_a, stack_b);
@@ -34,42 +34,34 @@ void divide_in_two(t_list **stack_a, t_list **stack_b, t_push *push, int origin_
 	push->mid = (push->max - push->next) / 2 + push->next;
 	push->flag++;
 }
-void	find_next(t_list **stack_a, t_list **stack_b, t_push *push)
+
+void	find_next(t_list **st_a, t_list **st_b, t_push *push)
 {
-	if(ft_lstsize(*stack_b) > 0 && (*stack_b)->index == push->next)
+	if (ft_lstsize(*st_b) > 0 && (*st_b)->index == push->next)
 	{
-		pa(stack_a, stack_b);
+		pa(st_a, st_b);
 	}
-	else if((*stack_a)->index == push->next)
+	else if ((*st_a)->index == push->next)
 	{
-		(*stack_a)->flag = -1;
-		ra(stack_a);
+		(*st_a)->flag = -1;
+		ra(st_a);
 		push->next++;
 	}
-	else if (ft_lstsize(*stack_b) > 1 && (*stack_b)->next->index == push->next)
-	{
-		sb(stack_b);
-	}
-	else if ((ft_lstsize(*stack_b)) > 2 && ft_lstlast(*stack_b)->index == push->next)
-		rrb(stack_b);
-	else if(ft_lstsize(*stack_a) > 1 && (*stack_a)->next->index == push->next)
-	{
-		sa(stack_a);
-	}
-	else if((ft_lstsize(*stack_a) > 1 && (*stack_a)->next->index == push->next)
-			&& ((*stack_b)->next->index == push->next + 1))
-	{
-			ss(stack_a, stack_b);
-	}
-	else if(ft_lstlast(*stack_a)->index == push->next)
-	{
-		rra(stack_a);
-	}
+	else if (ft_lstsize(*st_b) > 1 && (*st_b)->next->index == push->next)
+		sb(st_b);
+	else if ((ft_lstsize(*st_b)) > 2 && ft_lstlast(*st_b)->index == push->next)
+		rrb(st_b);
+	else if (ft_lstsize(*st_a) > 1 && (*st_a)->next->index == push->next)
+		sa(st_a);
+	else if ((ft_lstsize(*st_a) > 1 && (*st_a)->next->index == push->next)
+		&& ((*st_b)->next->index == push->next + 1))
+		ss(st_a, st_b);
+	else if (ft_lstlast(*st_a)->index == push->next)
+		rra(st_a);
 	else
 		return ;
-	find_next(stack_a, stack_b, push);
+	find_next(st_a, st_b, push);
 }
-
 
 static void	sorting_emptying_b(t_list **stack_a, t_list **stack_b, t_push *push)
 {
@@ -78,9 +70,9 @@ static void	sorting_emptying_b(t_list **stack_a, t_list **stack_b, t_push *push)
 
 	i = 0;
 	len_b = ft_lstsize(*stack_b);
-	while(i < len_b && ft_lstsize(*stack_b))
+	while (i < len_b && ft_lstsize(*stack_b))
 	{
-		if((*stack_b)->index == push->next)
+		if ((*stack_b)->index == push->next)
 		{
 			find_next(stack_a, stack_b, push);
 		}
@@ -102,14 +94,14 @@ static void	sorting_emptying_b(t_list **stack_a, t_list **stack_b, t_push *push)
 
 static void	sorting_a(t_list **stack_a, t_list **stack_b, t_push *push)
 {
-	int flag_now;
-	
+	int	flag_now;
+
 	flag_now = (*stack_a)->flag;
-	if((*stack_a)->flag != 0)
+	if ((*stack_a)->flag != 0)
 	{
-		while((*stack_a)->flag == flag_now)
+		while ((*stack_a)->flag == flag_now)
 		{
-			if((*stack_a)->index != push->next)
+			if ((*stack_a)->index != push->next)
 				pb(stack_a, stack_b);
 			find_next(stack_a, stack_b, push);
 		}
@@ -119,17 +111,17 @@ static void	sorting_a(t_list **stack_a, t_list **stack_b, t_push *push)
 	push->mid = (push->max - push->next) / 2 + push->next;
 }
 
-void sorting_algorithm(t_list **stack_a, t_list **stack_b, int origin_len)
+void	sort_algorithm(t_list **stack_a, t_list **stack_b, int origin_len)
 {
-    t_push	push;
+	t_push	push;
 
 	push.next = return_node_with_min_value(stack_a)->index;
 	push.max = return_node_with_max_value(stack_a)->index;
 	push.mid = push.max / 2 + push.next;
 	divide_in_two(stack_a, stack_b, &push, origin_len);
-	while(!is_sorted_a(stack_a, origin_len))
+	while (!is_sorted_a(stack_a, origin_len))
 	{
-		if(ft_lstsize(*stack_b) == 0)
+		if (ft_lstsize(*stack_b) == 0)
 		{
 			sorting_a(stack_a, stack_b, &push);
 		}
@@ -138,5 +130,4 @@ void sorting_algorithm(t_list **stack_a, t_list **stack_b, int origin_len)
 			sorting_emptying_b(stack_a, stack_b, &push);
 		}
 	}
-	
 }
