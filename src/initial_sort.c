@@ -6,7 +6,7 @@
 /*   By: ale <ale@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/19 16:54:43 by ale           #+#    #+#                 */
-/*   Updated: 2024/01/19 17:00:09 by ale           ########   odam.nl         */
+/*   Updated: 2024/01/20 20:02:46 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ static void	node3_sort(t_swap *tab)
 		sa(&tab->stack_a);
 	else if (tab->stack_a->content < tab->stack_a->next->content
 		&& tab->stack_a->next->content > last_in_stack->content)
-		rra(&tab->stack_a);
-	else if (tab->stack_a->content < tab->stack_a->next->content
-		&& tab->stack_a->next->content > last_in_stack->content)
 	{
 		rra(&tab->stack_a);
 		sa(&tab->stack_a);
 	}
+	else if (tab->stack_a->content > last_in_stack->content
+		&& tab->stack_a->next->content > last_in_stack->content)
+		rra(&tab->stack_a);
 }
 
 static void	node5_sort(t_swap *tab)

@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/16 16:21:03 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/20 15:30:02 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/20 19:43:01 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		arg = ft_split(argv[1], ' ');
-		if (arg == NULL)
+		if (arg == NULL || !argv[1])
 			return (free(tab), 0);
 		flag = 1;
 	}
