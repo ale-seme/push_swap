@@ -6,7 +6,7 @@
 /*   By: asemerar <asemerar@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/06 14:17:19 by asemerar      #+#    #+#                 */
-/*   Updated: 2024/01/17 13:41:40 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/20 14:00:52 by asemerar      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static void	ft_rotate(t_list **stack)
 	t_list	*first_node;
 
 	first_node = *stack;
+	if(!(*stack) || !((*stack)->next))
+		return ;
 	*stack = first_node->next;
 	first_node->next = NULL;
 	ft_lstlast(*stack)->next = first_node;
@@ -36,8 +38,9 @@ void	rb(t_list **stack_b)
 
 void	rr(t_list **stack_a, t_list **stack_b)
 {
-	ra(stack_a);
-	rb(stack_b);
+	ft_rotate(stack_a);
+	ft_rotate(stack_b);
+	write(1, "rr\n", 3);
 }
 
 // static void	ft_rotate(t_list **stack)

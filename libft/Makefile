@@ -6,13 +6,13 @@
 #    By: asemerar <asemerar@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/04 16:04:37 by asemerar      #+#    #+#                  #
-#    Updated: 2024/01/18 17:28:39 by asemerar      ########   odam.nl          #
+#    Updated: 2024/01/20 15:43:36 by asemerar      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 		ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c \
