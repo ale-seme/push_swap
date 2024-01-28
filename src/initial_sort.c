@@ -6,7 +6,7 @@
 /*   By: ale <ale@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/19 16:54:43 by ale           #+#    #+#                 */
-/*   Updated: 2024/01/20 20:02:46 by asemerar      ########   odam.nl         */
+/*   Updated: 2024/01/28 21:36:28 by ale           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static void	node3_sort(t_swap *tab)
 {
 	t_list	*last_in_stack;
 
+	//there is a problem with the sorting of 3 numbers, you could remove and let the sorting algoritm do the job or do 
 	if (is_sorted(&tab->stack_a))
 		return ;
 	last_in_stack = ft_lstlast(tab->stack_a);
@@ -24,6 +25,7 @@ static void	node3_sort(t_swap *tab)
 		sa(&tab->stack_a);
 		rra(&tab->stack_a);
 	}
+	//might be related to one of these cases
 	else if (tab->stack_a->content > tab->stack_a->next->content
 		&& tab->stack_a->next->content < last_in_stack->content)
 		ra(&tab->stack_a);
